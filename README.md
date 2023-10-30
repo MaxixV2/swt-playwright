@@ -5,13 +5,8 @@ This is a project for functional testing of https://www.redmine.org website
  - Node.js >= v18.17.1
 
 ### INSTALLATION:
-1. Install the playwright framework:
 ```
-npm install --save-dev playwright
-```
-2. Install the Faker dependencies: 
-```
-npm install @faker-js/faker --save-dev
+npm install
 ```
 ### USAGE:
 To run tests specified in spec.js files use:
