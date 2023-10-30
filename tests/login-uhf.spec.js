@@ -5,7 +5,7 @@ const { faker } = require('@faker-js/faker');
 
 const randomLogin = faker.internet.userName();
 const randomPassword = faker.internet.password();
-const userCredentials = require('../testdata.json');
+const userCredentials = require('../data/testdata.json');
 
 test.describe('login with invalid credentials', async () => {
     test('should display an error using invalid login', async ({ page }) => {

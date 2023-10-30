@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { HomePage } = require('../pages/home.page');
 const { LoginPage } = require('../pages/login.page');
 
-const userCredentials = require('../testdata.json');
+const userCredentials = require('../data/testdata.json');
 
 test.describe('login with valid credentials', async () => {
     test('should log in with valid credentials', async ({ page }) => {

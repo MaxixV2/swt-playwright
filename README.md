@@ -39,11 +39,11 @@ HTML report example:
 
 To generate Allure report use:
 ```
-allure generate allure-results -o allure-report --clean 
+npm run allure:generate
 ```
 To open Allure report use:
 ```
-allure open allure-report
+npm run allure:open
 ```
 Allure report example: 
 
