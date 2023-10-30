@@ -26,12 +26,14 @@ jobs:
         needs: tests_e2e
         name: Generate report
         steps:
+            - name: Checkout
+              uses: actions/checkout@v3
             - name: Download artifacts
               uses: actions/download-artifact@v3
-            - name: Install Allure and command line
-              run: npm install allure-playwright && npm install allure-commandline
+            - name: Install Allure command line
+              run:  npm install -g allure-commandline
             - name: Generate report
-              run: allure generate -c allure-results -o allure-report
+              run: allure generate allure-results -o allure-report
             - name: Store generated report
               uses: actions/upload-artifact@v3
               with: 
