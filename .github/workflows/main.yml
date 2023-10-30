@@ -28,7 +28,7 @@ jobs:
         steps:
             - name: Download artifacts
               uses: actions/download-artifact@v3
-            - run: npm run allure:generate
+            - run: allure generate -c allure-results -o allure-report
             - name: Store generated report
               uses: actions/upload-artifact@v3
               with: 
