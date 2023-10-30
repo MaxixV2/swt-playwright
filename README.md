@@ -26,7 +26,7 @@ To run tests in headed mode use flag `--headed`
 
 To open last HTML report run use:
 ```
-npx playwright show-report`
+npx playwright show-report
 ```
 HTML report example:
 
@@ -35,15 +35,6 @@ HTML report example:
 
 ## ALLURE REPORTER
 
-### INSTALLATION:
-1. Install the Allure dependencies:
-```
-npm i -D @playwright/test allure-playwright
-```
-2. Install Allure command line:
-```
-npm install -g allure-commandline --save-dev
-```
 ### USAGE:
 
 To generate Allure report use:
