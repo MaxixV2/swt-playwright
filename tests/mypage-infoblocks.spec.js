@@ -3,7 +3,7 @@ const { MyPage } = require('../pages/mypage.page');
 const { HomePage } = require('../pages/home.page');
 const { LoginPage } = require('../pages/login.page');
 
-const userCredentials = require('../testdata.json');
+const userCredentials = require('../data/testdata.json');
 
 test.describe('my page info blocks', async () => {
     test.beforeEach('login', async ({ page }) => {
@@ -13,7 +13,7 @@ test.describe('my page info blocks', async () => {
         await homePage.clickSignInBtn();
         await loginPage.login(userCredentials.login, userCredentials.password);
     });
-    
+
     test('should add and remove info blocks on my page', async ({ page }) => {
         const homePage = new HomePage(page);
         const myPage = new MyPage(page);
@@ -28,7 +28,7 @@ test.describe('my page info blocks', async () => {
             await myPage.closeBlock();
             await expect(myPage.getInfoBlock()).not.toBeVisible();
         }
-    
+
     });
 })
 
