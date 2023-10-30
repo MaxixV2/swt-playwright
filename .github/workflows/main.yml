@@ -4,6 +4,8 @@ on:
 
 permissions:
     id-token: write
+    contents: read
+    pages: write
         
 jobs:
     tests_e2e:
