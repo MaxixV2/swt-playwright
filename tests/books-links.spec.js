@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { HomePage } = require('../pages/home.page');
 
-const purchaseLinksArray = require('../testdata.json');
+const purchaseLinksArray = require('../data/testdata.json');
 
 test.describe('books links', () => {
     test('should redirect to books packtpub.com purchase pages', async ({ page }) => {
