@@ -4,12 +4,49 @@ on:
         
 jobs:
     tests_e2e:
-      name: Run end-to-end tests
-      runs-on: windows-latest
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
-        - name: Install dependencies
-          run: npm ci
-        - name: Run tests
-          run: npx playwright test
+        name: Run end-to-end tests
+        runs-on: windows-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+            - name: Install dependencies
+              run: npm ci
+            - name: Run tests
+              run: npx playwright test --alluredir=allure-results
+            - name: Store Allure results
+              uses: actions/upload-artifact@v3
+              with: 
+                name: allure-results
+                path: 
+                    allure-results
+                retention-days: 1    
+
+    generate-report:
+        runs-on: windows-latest
+        needs: tests_e2e
+        name: Generate report
+        steps:
+            - name: Download artifacts
+              uses: actions/download-artifact@v3
+            - run: allure generate -c allure-results -o _site
+            - name: Store generated report
+              uses: actions/upload-artifact@v3
+              with: 
+                name: _site
+                path: 
+                    _site
+                retention-days: 1
+            
+    publish-report: 
+        runs-on: windows-latest
+        needs: generate-report
+        name: Report publication
+        steps:
+            - name: Download artifacts
+              uses: actions/download-artifact@v3
+            - name: Upload pages artifacts
+              uses: actions/upload-pages-artifact@v2
+            - name: Deploy to github pages
+              id: deployment
+              uses: actions/deploy-pages@v1.2.9
+            
