@@ -1,6 +1,9 @@
 # DESCRIPTION
 This is a project for functional testing of https://www.redmine.org website
-##
+## REQUIREMENTS:
+
+ - Node.js >= v18.17.1
+
 ### INSTALLATION:
 1. Install the playwright framework:
 ```
@@ -21,6 +24,10 @@ Use `npx playwrite test filename.spec.js` to run a specific test
 For example:
 
     npx playwright test login-hf.spec.js
+
+To run tests in headed mode use flag `--headed` 
+
+    npx playwright test --headed
 
 To open last HTML report run use:
 ```
