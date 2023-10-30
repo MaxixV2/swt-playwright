@@ -1,6 +1,9 @@
 on:
     push:
       branches: [master, test]
+
+permissions:
+    id-token: write
         
 jobs:
     tests_e2e:
@@ -51,7 +54,9 @@ jobs:
               uses: actions/download-artifact@v3
             - name: Upload pages artifacts
               uses: actions/upload-pages-artifact@v2
+              with: 
+                path: allure-report
             - name: Deploy to github pages
               id: deployment
-              uses: actions/deploy-pages@v1.2.9
+              uses: actions/deploy-pages@v2
             
