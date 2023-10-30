@@ -28,7 +28,10 @@ jobs:
         steps:
             - name: Download artifacts
               uses: actions/download-artifact@v3
-            - run: allure generate -c allure-results -o allure-report
+            - name: Install Allure command line
+              run: npm i allure-commandline
+            - name: Generate report
+              run: allure generate -c allure-results -o allure-report
             - name: Store generated report
               uses: actions/upload-artifact@v3
               with: 
