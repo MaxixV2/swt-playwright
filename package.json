@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "allure:generate": "allure generate allure-results -o allure-report --clean",
-    "allure:open": "allure open allure-report"
+    "allure:open": "allure open allure-report",
+    "postinstall": "npx playwright install"
   },
   "keywords": [],
   "author": "",
